@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<title>Credit Bank</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+[ng\:cloak], [ng-cloak], .ng-cloak {
+	display: none !important;
+}
+</style>
+</head>
+
+<body ng-app="app">
+	<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Dashboard</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="http://localhost:8080/activiti-explorer">Tasks</a></li>
+					<li><a href="#">Reports</a></li>
+				</ul>
+			</div>
+		</nav>
+		<h1>Submit your credit application</h1>
+		<div ng-controller="home" ng-cloak class="ng-cloak">
+			<form role="form">
+				<div class="form-group">
+					<label for="username">Applicant Name:</label> <input type="text"
+						class="form-control" id="applicantName" name="applicantName"
+						ng-model="creditApplication.applicantName" />
+				</div>
+				<div class="form-group">
+					<label for="username">Bank:</label>
+					<!-- input type="text"
+						class="form-control" id="bank" name="bank"
+						ng-model="creditApplication.bank" / -->
+					<select class="form-control" id="bank" name="bank"
+						ng-model="creditApplication.bank">
+						<option id="ABSA">ABSA</option>
+						<option id="HSBC">HSBC</option>
+					</select>
+
+				</div>
+				<div class="form-group">
+					<label for="username">Credit Rating:</label> <input type="text"
+						class="form-control" id="rating" name="rating"
+						ng-model="creditApplication.rating" />
+				</div>
+				<div class="form-group">
+					<label for="username">Status:</label> <input type="text"
+						class="form-control" id="rating" name="rating"
+						ng-model="creditApplication.status" disabled />
+				</div>
+				<button ng-click="processForm()" class="btn btn-primary">Submit</button>
+				<button ng-click="refreshForm()" class="btn btn-primary">Refresh</button>
+				<button ng-click="clearForm()" class="btn btn-primary">Clear</button>
+			</form>
+		</div>
+	</div>
+	<script src="js/angular.js"></script>
+	<script src="js/ui-bootstrap-1.1.0.js" type="text/javascript"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>

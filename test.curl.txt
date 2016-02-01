@@ -1,0 +1,9 @@
+curl -u admin:admin -H "Content-Type: application/json" -d '{"applicant":"John Doe", "bank": "Absa", "rating":1}'  http://localhost:8080/credit
+
+curl -g -u admin:admin -X POST -H "Content-Type: application/json" http://localhost:9001/start-credit-process -d @test.json
+
+
+curl -u admin:admin -H "Content-Type: application/json" -d @complete.json http://localhost:8080/runtime/tasks/14
+
+
+curl -g -u kermit:kermit -X POST -H "Content-Type: application/json" http://localhost:9001/application/28
