@@ -16,6 +16,7 @@ za\co\absa\cib\trade\credit\hsbc\HsbcCreditCheckTransformer.class
 za\co\absa\cib\trade\credit\Status.class
 za\co\absa\cib\trade\credit\config\WebSecurityConfig.class
 za\co\absa\cib\trade\credit\absa\AbsaCreditCheck.class
+za\co\absa\cib\trade\credit\config\UserRegistry.class
 za\co\absa\cib\trade\credit\Application.class
 za\co\absa\cib\trade\credit\CreditRestController.class
 za\co\absa\cib\trade\credit\Application$1.class

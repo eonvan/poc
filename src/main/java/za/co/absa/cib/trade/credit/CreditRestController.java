@@ -4,12 +4,7 @@ import java.util.Collections;
 import java.util.Map;
 
 import org.activiti.engine.RuntimeService;
-import org.apache.camel.CamelContext;
-import org.apache.camel.Endpoint;
-import org.apache.camel.Exchange;
-import org.apache.camel.ExchangePattern;
 import org.apache.camel.Produce;
-import org.apache.camel.Producer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +29,8 @@ public class CreditRestController {
 	@Autowired
 	private RuntimeService runtimeService;
 
-	@Autowired
-	private CamelContext camelContext;
+//	@Autowired
+//	private CamelContext camelContext;
 	
 	@Autowired
 	private CreditApplicationRepository repository;
@@ -78,11 +73,11 @@ public class CreditRestController {
 	@ResponseStatus( value = HttpStatus.OK )
 	public @ResponseBody CreditApplication readApplication(@PathVariable Long id) {
 		
-		logger.info("Retrieving result credit application for " + id);
+		logger.info(String.format("Retrieving result credit application for %s", id));
 		
 		CreditApplication result = repository.findOne(id);
 		
-		logger.info("Found application " + result.getApplicantName());
+		logger.info(String.format("Found application %s", result.getApplicantName()));
 		
 		return result;
 	}

@@ -30,7 +30,7 @@ public class DatasourceConfig {
 	public LocalContainerEntityManagerFactoryBean defaultEntityManagerFactory(
 	        EntityManagerFactoryBuilder builder) {
 	    return builder
-	            .dataSource(tenantDatasource())
+	            .dataSource(testDataSource())
 	            .packages(CreditApplication.class)
 	            .persistenceUnit("trade")
 	            .properties(jpaProperties())
@@ -60,17 +60,17 @@ public class DatasourceConfig {
 	@Bean
 	public DataSource testDataSource() {
 	    DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.url("jdbc:postgresql:prototype");
-        dataSourceBuilder.username("absa");
-        dataSourceBuilder.password("absa123");
+        dataSourceBuilder.url("jdbc:postgresql:postgres");
+        dataSourceBuilder.username("postgres");
+        dataSourceBuilder.password("jack123");
         return dataSourceBuilder.build();   
 	}
 	
 	@Bean(name="dataSources")
 	public Map<String, DataSource> targetDataSources() {
 		Map<String, DataSource> result = new HashMap<String, DataSource>();
-		result.put("ABSA", testDataSource());
 		result.put("HSBC", defaultDataSource());
+		result.put("ABSA", testDataSource());
 		return result;
 	}
 	

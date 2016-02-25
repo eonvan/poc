@@ -13,28 +13,28 @@ public class CreditProcessTest {
 	public void test() {
 		CreditApplication application = new CreditApplication("Test Case 1", "Absa", 2);
 		
-		assertEquals(Status.INITIATED, application.getStatus());
+		assertEquals(Status.INITIATED.name(), application.getStatus());
 		
 		CreditEvaluation evaluation = new CreditEvaluation(application);
 		
 		evaluation.execute();
 	
-		assertEquals(Status.DECLINED, application.getStatus());
+		assertEquals(Status.DECLINED.name(), application.getStatus());
 		
 		application.setRating(3);
 		evaluation.execute();
 				
-		assertEquals(Status.APPROVED, application.getStatus());
+		assertEquals(Status.APPROVED.name(), application.getStatus());
 		
 		application.setBank("HSBC");
 		evaluation.execute();
 		
-		assertEquals(Status.DECLINED, application.getStatus());
+		assertEquals(Status.DECLINED.name(), application.getStatus());
 		
 		application.setRating(4);
 		evaluation.execute();
 		
-		assertEquals(Status.APPROVED, application.getStatus());
+		assertEquals(Status.APPROVED.name(), application.getStatus());
 	}
 
 }
